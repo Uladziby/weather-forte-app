@@ -6,7 +6,7 @@ import { CURRENT_WEATHER_TITLE } from "../../utils/constants";
 import { WeatherDescription } from "./Parts/WeatherDescription";
 
 export const WeatherCard = () => {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState<boolean>(false);
 
   const handleFavorite = () => {
     setIsActive(!isActive);
@@ -20,7 +20,7 @@ export const WeatherCard = () => {
 
   return (
     <>
-      <ATitle>{CURRENT_WEATHER_TITLE}</ATitle>
+      <ATitle styles={{ textAlign: "center" }}>{CURRENT_WEATHER_TITLE}</ATitle>
       <div className="weather-dashboard">
         <div className="weather">
           <div className="city">

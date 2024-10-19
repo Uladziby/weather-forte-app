@@ -1,6 +1,6 @@
-import { ResponseCurrentWeather } from "./type";
+import { ResponseCurrentWeather, State } from "./type";
 
-export const initialState: ResponseCurrentWeather = {
+export const responseWeather: ResponseCurrentWeather = {
   weather: [],
   base: "",
   main: {
@@ -24,4 +24,10 @@ export const initialState: ResponseCurrentWeather = {
   id: 0,
   name: "",
   cod: 0,
+};
+
+export const initialState: State = {
+  weather: responseWeather,
+  currentCoordinates: { lon: 0, lat: 0 },
+  favoriteList: [],
 };

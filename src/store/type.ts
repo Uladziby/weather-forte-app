@@ -28,3 +28,20 @@ export type ResponseCurrentWeather = {
   name: string;
   cod: number;
 };
+
+export type ResponseCoordinates = {
+  lat: number;
+  lon: number;
+};
+
+export type State = {
+  weather: ResponseCurrentWeather;
+  currentCoordinates: { lon: number; lat: number };
+  favoriteList: FavoriteLocation[];
+};
+
+export type FavoriteLocation = {
+  name: string;
+  lon: number;
+  lat: number;
+};
