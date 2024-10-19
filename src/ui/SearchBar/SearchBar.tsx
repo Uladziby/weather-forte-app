@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { SEARCH_BAR_TITLE } from "../../utils/constants";
 import { ATitle } from "../ATitle/ATitle";
+import { AInputSearch } from "../AInputSearch/AInputSearch";
+import "./styles.css";
 
 export const CitySearch = () => {
   const [city, setCity] = useState("");
@@ -14,13 +16,8 @@ export const CitySearch = () => {
   return (
     <>
       <ATitle>{SEARCH_BAR_TITLE}</ATitle>
-      <div className="city-search">
-        <input
-          type="text"
-          placeholder="Enter city name"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-        />
+      <div className="location_search">
+        <AInputSearch />
         <button onClick={handleSearch}>Search & Add</button>
       </div>
     </>

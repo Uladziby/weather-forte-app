@@ -1,8 +1,4 @@
 export type ResponseCurrentWeather = {
-  coord: {
-    lon: number;
-    lat: number;
-  };
   weather: {
     id: number;
     main: string;
@@ -12,13 +8,8 @@ export type ResponseCurrentWeather = {
   base: string;
   main: {
     temp: number;
-    feels_like: number;
-    temp_min: number;
-    temp_max: number;
-    pressure: number;
     humidity: number;
   };
-  visibility: number;
   wind: {
     speed: number;
     deg: number;
@@ -31,8 +22,6 @@ export type ResponseCurrentWeather = {
     type: number;
     id: number;
     country: string;
-    sunrise: number;
-    sunset: number;
   };
   timezone: number;
   id: number;

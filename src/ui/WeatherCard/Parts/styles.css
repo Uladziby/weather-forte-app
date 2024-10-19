@@ -1,0 +1,10 @@
+.details_description {
+  gap: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.details_description-item {
+  color: grey;
+}
