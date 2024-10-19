@@ -1,0 +1,76 @@
+.weather-dashboard {
+  overflow: hidden;
+  position: relative;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 60%;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.weather {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  row-gap: 5px;
+  min-height: 180px;
+  text-align: left;
+}
+
+.description-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 12px;
+}
+
+.weather-error {
+  margin-top: -10px;
+}
+
+.weather-icon {
+  font-size: 44px;
+}
+
+.city {
+  width: 100%;
+  padding: 5px;
+  font-size: 20px;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid #fff;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-around;
+}
+
+.city::placeholder {
+  font-size: 20px;
+  opacity: 0.6;
+}
+
+.button_favorite {
+  position: absolute;
+  top: 80%;
+  right: 5%;
+  border-radius: 100%;
+  background-color: transparent;
+  padding: 5px;
+  border: 0rem;
+  cursor: pointer;
+}
+
+.button_favorite:hover {
+  svg {
+    stroke: #6366f1;
+  }
+}
+
+.active {
+  svg {
+    stroke: #6366f1;
+    fill: #6366f1;
+  }
+}
