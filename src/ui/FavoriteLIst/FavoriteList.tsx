@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { ATitle } from "../ATitle/ATitle";
 import { FavoriteCityCard } from "./FavoriteCity/FavoriteCityCard";
-import { selectFavoriteList } from "../../store/selectors";
+import { selectFavoriteList } from "store/selectors";
 import { FAVORITE_LIST_TITLE } from "../../utils/constants";
 import "./styles.css";
 

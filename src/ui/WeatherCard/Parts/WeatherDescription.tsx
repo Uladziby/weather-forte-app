@@ -1,4 +1,4 @@
-import { transformTemperatureToCelsius } from "../../../utils/transformTemperature";
+import { transformTemperatureToCelsius } from "utils/transformTemperature";
 import "./styles.css";
 
 export const WeatherDescription = ({

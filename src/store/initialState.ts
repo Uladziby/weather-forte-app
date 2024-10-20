@@ -13,19 +13,9 @@ export const responseWeather: ResponseCurrentWeather = {
     speed: 0,
     deg: 0,
   },
-  clouds: {
-    all: 0,
-  },
   dt: 0,
-  sys: {
-    type: 0,
-    id: 0,
-    country: "",
-  },
-  timezone: 0,
   id: 0,
   name: "",
-  cod: 0,
 };
 
 export const initialState: State = {

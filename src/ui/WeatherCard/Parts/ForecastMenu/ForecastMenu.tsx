@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetch5DaysForecast } from "../../../../api/fetch5DaysForecast";
-import { ForecastType } from "../../../../api/types";
+import { ForecastType } from "api/types";
 import "./styles.css";
 import { ForecastCard } from "./ForecastCard";
 

@@ -2,14 +2,14 @@ import { useRef, useState } from "react";
 import { ERROR_MESSAGE } from "../../utils/constants";
 import { AInputSearch } from "../AInputSearch/AInputSearch";
 import "./styles.css";
-import { useAppDispatch } from "../../store";
+import { useAppDispatch } from "store";
 import {
   fetchCoordinatesThunk,
   fetchCurrentWeatherThunk,
   setError,
-} from "../../store/slices/weatherDataSlice";
+} from "store/slices/weatherDataSlice";
 import { useSelector } from "react-redux";
-import { selectErrors } from "../../store/selectors";
+import { selectErrors } from "store/selectors";
 
 export const CitySearch = () => {
   const [city, setCity] = useState<string>("");

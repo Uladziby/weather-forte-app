@@ -4,15 +4,15 @@ import { CloudOff, CloudRain, Cloudy, Star, Sun } from "lucide-react";
 import { ATitle } from "../ATitle/ATitle";
 import { CURRENT_WEATHER_TITLE } from "../../utils/constants";
 import { WeatherDescription } from "./Parts/WeatherDescription";
-import { selectWeatherData, selectWeatherSlice } from "../../store/selectors";
+import { selectWeatherData, selectWeatherSlice } from "store/selectors";
 import { ForecastMenu } from "./Parts/ForecastMenu/ForecastMenu";
-import { useAppDispatch } from "../../store";
+import { useAppDispatch } from "store/index";
 import {
   addFavoriteLocation,
   removeFavoriteLocation,
-} from "../../store/slices/weatherDataSlice";
-import "./styles.css";
+} from "store/slices/weatherDataSlice";
 import { Loader } from "../Loader/Loader";
+import "./styles.css";
 
 export const WeatherCard = () => {
   const [isFavorite, setIsFavorite] = useState<boolean>(false);

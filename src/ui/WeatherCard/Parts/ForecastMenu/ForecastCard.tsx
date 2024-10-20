@@ -1,7 +1,7 @@
 import { Cloudy, CloudRain, Sun, CloudOff } from "lucide-react";
-import { ForecastDataProps } from "../../../../api/types";
-import { transformTemperatureToCelsius } from "../../../../utils/transformTemperature";
-import { formatDate } from "../../../../utils/formatData";
+import { ForecastDataProps } from "api/types";
+import { transformTemperatureToCelsius } from "utils/transformTemperature";
+import { formatDate } from "utils/formatData";
 
 export const ForecastCard = ({ forecast }: ForecastDataProps) => {
   const icons: { [key: string]: JSX.Element } = {

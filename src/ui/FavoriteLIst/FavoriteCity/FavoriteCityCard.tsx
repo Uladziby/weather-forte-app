@@ -1,11 +1,11 @@
 import { Star } from "lucide-react";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "../../../store";
+import { useAppDispatch } from "store";
 import {
   fetchCurrentWeatherThunk,
   removeFavoriteLocation,
-} from "../../../store/slices/weatherDataSlice";
-import { selectFavoriteList } from "../../../store/selectors";
+} from "store/slices/weatherDataSlice";
+import { selectFavoriteList } from "store/selectors";
 import "./styles.css";
 
 export const FavoriteCityCard = ({ location }: { location: string }) => {

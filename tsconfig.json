@@ -14,12 +14,14 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "preserve",
+    "baseUrl": "./src",
+    "paths": {
+      "@ui/*": ["ui/*"],
+      "@store/*": ["store/*"],
+      "@utils/*": ["utils/*"],
+      "@/*": ["*"]
+    }
   },
-  "paths": {
-    "@/*": ["./src/*"],
-    "@ui/*": ["./src/ui/*"],
-    "@utils/*": ["./src/utils/*"]
-  },
-  "include": ["src"]
+  "include": ["react-app-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.css"]
 }
