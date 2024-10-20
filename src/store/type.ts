@@ -35,6 +35,7 @@ export type State = {
   currentCoordinates: { lon: number; lat: number };
   favoriteList: FavoriteLocation[];
   isLoading: boolean;
+  Errors: string;
 };
 
 export type FavoriteLocation = {

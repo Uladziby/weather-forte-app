@@ -18,13 +18,27 @@ const weatherDataSlice = createSlice({
       );
       localStorage.setItem("favoriteList", JSON.stringify(state.favoriteList));
     },
+    setError(state, action) {
+      state.Errors = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchCoordinatesThunk.fulfilled, (state, action) => {
       state.currentCoordinates = action.payload[0];
     });
+    builder.addCase(fetchCoordinatesThunk.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(fetchCoordinatesThunk.rejected, (state, action) => {
+      state.Errors = action.error.message || "Error";
+      state.isLoading = false;
+    });
     builder.addCase(fetchCurrentWeatherThunk.fulfilled, (state, action) => {
       state.weather = action.payload;
+      state.isLoading = false;
+    });
+    builder.addCase(fetchCurrentWeatherThunk.pending, (state) => {
+      state.isLoading = true;
     });
   },
 });
@@ -42,5 +56,5 @@ export const fetchCurrentWeatherThunk = createAsyncThunk(
 );
 
 export default weatherDataSlice.reducer;
-export const { addFavoriteLocation, removeFavoriteLocation } =
+export const { addFavoriteLocation, removeFavoriteLocation, setError } =
   weatherDataSlice.actions;

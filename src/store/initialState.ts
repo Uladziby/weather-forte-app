@@ -32,6 +32,7 @@ export const initialState: State = {
   weather: responseWeather,
   currentCoordinates: { lon: 0, lat: 0 },
   isLoading: false,
+  Errors: "",
   favoriteList: JSON.parse(
     getFromLocalStorage("favoriteList") || "[]"
   ) as FavoriteLocation[],

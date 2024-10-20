@@ -7,3 +7,9 @@ export const selectFavoriteList = (state: RootState) =>
 
 export const selectCurrentCoordinates = (state: RootState) =>
   state.weatherData.currentCoordinates;
+
+export const selectIsLoading = (state: RootState) =>
+  state.weatherData.isLoading;
+export const selectErrors = (state: RootState) => state.weatherData.Errors;
+
+export const selectWeatherSlice = (state: RootState) => state.weatherData;

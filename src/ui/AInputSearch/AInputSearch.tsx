@@ -10,7 +10,7 @@ export const AInputSearch = forwardRef<HTMLInputElement, InputProps>(
       <input
         type="text"
         className="search input"
-        placeholder="Search for a city"
+        placeholder="Type city name"
         ref={ref}
         {...props}
       />
