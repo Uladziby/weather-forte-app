@@ -1,0 +1,7 @@
+.title {
+  margin-bottom: 2rem;
+  text-align: left;
+  border-bottom: 0;
+  color: var(--primary-color);
+  width: 100%;
+}
