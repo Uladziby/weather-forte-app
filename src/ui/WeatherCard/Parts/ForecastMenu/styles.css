@@ -1,0 +1,15 @@
+.forecast_menu {
+  transition: height 0.3s ease-in, opacity 0.4s ease-in;
+}
+
+.forecast_menu.active {
+  visibility: visible;
+  height: 777px;
+  opacity: 1;
+}
+
+.forecast_menu.close {
+  visibility: hidden;
+  height: 0;
+  opacity: 0;
+}

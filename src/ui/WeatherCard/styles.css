@@ -89,3 +89,13 @@
   align-items: center;
   width: 100%;
 }
+
+.button_forecast {
+  background-color: transparent;
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

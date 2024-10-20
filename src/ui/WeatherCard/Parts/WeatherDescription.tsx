@@ -1,3 +1,4 @@
+import { transformTemperatureToCelsius } from "../../../utils/transformTemperature";
 import "./styles.css";
 
 export const WeatherDescription = ({
@@ -14,7 +15,7 @@ export const WeatherDescription = ({
   return (
     <div className="details_description">
       <span className="details_description-item">
-        temperature : {temperature} C
+        temperature : {transformTemperatureToCelsius(temperature)} C
       </span>
       <span className="details_description-item">weather: {weather}</span>
       <div className="details_description-item">wind : {wind} m/s</div>

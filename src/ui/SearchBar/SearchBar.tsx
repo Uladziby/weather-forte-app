@@ -10,31 +10,27 @@ import {
 } from "../../store/slices/weatherDataSlice";
 
 export const CitySearch = () => {
-  const dispatch = useAppDispatch();
-
   const [city, setCity] = useState<string>("");
+  const dispatch = useAppDispatch();
 
   const handleSearch = async () => {
     if (city) {
-      await dispatch(fetchCoordinatesThunk(city));
-      await dispatch(fetchCurrentWeatherThunk());
+      await dispatch(fetchCoordinatesThunk(city)).then(async (res) => {
+        const { lat, lon } = (res.payload as { lat: number; lon: number }[])[0];
+        await dispatch(fetchCurrentWeatherThunk({ lat, lon }));
+      });
     }
   };
 
-  const handleChange = (query: string) => {
-    setCity(query);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCity(e.target.value);
   };
 
   return (
     <>
       <ATitle styles={{ textAlign: "center" }}>{SEARCH_BAR_TITLE}</ATitle>
       <div className="location_search">
-        <AInputSearch
-          onChange={(e) => {
-            const query = e.target.value;
-            handleChange(query);
-          }}
-        />
+        <AInputSearch onChange={handleChange} />
         <button onClick={handleSearch}>Search & Add</button>
       </div>
     </>

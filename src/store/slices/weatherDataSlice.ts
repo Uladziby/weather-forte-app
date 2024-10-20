@@ -2,6 +2,7 @@ import { fetchCurrentWeatherByCoords } from "../../api/fetchWeatherByLocation";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { initialState } from "../initialState";
 import { fetchCoordinatesByName } from "../../api/fetchWeatherByLocation";
+import { CoordsType } from "../type";
 
 const weatherDataSlice = createSlice({
   name: "weatherDataSlice",
@@ -16,7 +17,6 @@ const weatherDataSlice = createSlice({
       state.currentCoordinates = action.payload[0];
     });
     builder.addCase(fetchCurrentWeatherThunk.fulfilled, (state, action) => {
-      console.log(action.payload);
       state.weather = action.payload;
     });
   },
@@ -29,7 +29,9 @@ export const fetchCoordinatesThunk = createAsyncThunk(
 
 export const fetchCurrentWeatherThunk = createAsyncThunk(
   "weatherDataSlice/fetchCurrentWeatherThunk",
-  async () => fetchCurrentWeatherByCoords(initialState.currentCoordinates)
+  async (coords: CoordsType) => {
+    return fetchCurrentWeatherByCoords(coords);
+  }
 );
 
 export default weatherDataSlice.reducer;

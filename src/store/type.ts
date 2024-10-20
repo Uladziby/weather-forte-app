@@ -6,6 +6,7 @@ export type ResponseCurrentWeather = {
     icon: string;
   }[];
   base: string;
+  coord: { lan: number; lat: number };
   main: {
     temp: number;
     humidity: number;
@@ -42,6 +43,11 @@ export type State = {
 
 export type FavoriteLocation = {
   name: string;
+  lon: number;
+  lat: number;
+};
+
+export type CoordsType = {
   lon: number;
   lat: number;
 };
