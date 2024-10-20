@@ -8,8 +8,14 @@ const weatherDataSlice = createSlice({
   name: "weatherDataSlice",
   initialState: initialState,
   reducers: {
-    setWeather(state, action) {
-      state.weather = action.payload;
+    addFavoriteLocation(state, action) {
+      state.favoriteList = [...state.favoriteList, action.payload];
+    },
+    removeFavoriteLocation(state, action) {
+      state.favoriteList = state.favoriteList.filter(
+        (location) => location.name !== action.payload
+      );
+      console.log(state.favoriteList);
     },
   },
   extraReducers: (builder) => {
@@ -35,3 +41,5 @@ export const fetchCurrentWeatherThunk = createAsyncThunk(
 );
 
 export default weatherDataSlice.reducer;
+export const { addFavoriteLocation, removeFavoriteLocation } =
+  weatherDataSlice.actions;

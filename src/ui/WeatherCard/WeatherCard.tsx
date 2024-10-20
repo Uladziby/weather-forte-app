@@ -1,21 +1,42 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { CloudOff, CloudRain, Cloudy, Star, Sun } from "lucide-react";
 import { ATitle } from "../ATitle/ATitle";
 import { CURRENT_WEATHER_TITLE } from "../../utils/constants";
 import { WeatherDescription } from "./Parts/WeatherDescription";
-import { selectWeatherData } from "../../store/selectors";
-import "./styles.css";
+import { selectFavoriteList, selectWeatherData } from "../../store/selectors";
 import { ForecastMenu } from "./Parts/ForecastMenu/ForecastMenu";
+import { useAppDispatch } from "../../store";
+import {
+  addFavoriteLocation,
+  removeFavoriteLocation,
+} from "../../store/slices/weatherDataSlice";
+import "./styles.css";
 
 export const WeatherCard = () => {
-  const [isActive, setIsActive] = useState<boolean>(false);
+  const [isFavorite, setIsFavorite] = useState<boolean>(false);
   const [isShowForecast, setIsShowForecast] = useState<boolean>(false);
-  const { weather, main, wind, name } = useSelector(selectWeatherData);
+  const { weather, main, wind, name, coord } = useSelector(selectWeatherData);
+  const favoriteList = useSelector(selectFavoriteList);
+  const dispatch = useAppDispatch();
 
   const handleFavorite = () => {
-    setIsActive(!isActive);
+    const isExistLocation = favoriteList.find((item) => item.name === name);
+
+    if (!isExistLocation) {
+      dispatch(addFavoriteLocation({ name, lat: coord.lat, lon: coord.lon }));
+      setIsFavorite(true);
+    } else {
+      dispatch(removeFavoriteLocation(name));
+      setIsFavorite(false);
+    }
   };
+
+  useEffect(() => {
+    const isExistLocation = favoriteList.find((item) => item.name === name);
+
+    setIsFavorite(!!isExistLocation);
+  }, [name, favoriteList]);
 
   const handleToggleShowForecast = () => {
     setIsShowForecast((prev) => !prev);
@@ -44,7 +65,7 @@ export const WeatherCard = () => {
             {weather[0] ? (
               <WeatherDescription
                 temperature={main.temp}
-                weather={weather[0].main}
+                weather={weather[0].description}
                 wind={wind.speed}
                 humidity={main.humidity}
               />
@@ -54,7 +75,7 @@ export const WeatherCard = () => {
 
             <div className="details_button">
               <button
-                className={`button_favorite ${isActive ? "active" : ""}`}
+                className={`button_favorite ${isFavorite ? "active" : ""}`}
                 onClick={handleFavorite}
               >
                 <Star size={30} color="#6366f1" strokeWidth={2} />

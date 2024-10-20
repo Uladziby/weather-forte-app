@@ -3,7 +3,7 @@ import { ResponseCurrentWeather, State } from "./type";
 export const responseWeather: ResponseCurrentWeather = {
   weather: [],
   base: "",
-  coord: { lan: 0, lat: 0 },
+  coord: { lon: 0, lat: 0 },
   main: {
     temp: 0,
     humidity: 0,

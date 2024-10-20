@@ -6,7 +6,7 @@ export type ResponseCurrentWeather = {
     icon: string;
   }[];
   base: string;
-  coord: { lan: number; lat: number };
+  coord: { lon: number; lat: number };
   main: {
     temp: number;
     humidity: number;
