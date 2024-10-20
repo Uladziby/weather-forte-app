@@ -1,6 +1,7 @@
-import { ResponseCoordinates, ResponseCurrentWeather } from "../store/type";
+import { ResponseCurrentWeather } from "../store/type";
 import { fetchData } from "../utils/fetchData";
 import { REQUEST_ENDPOINTS } from "../utils/requestEndpoints";
+import { ResponseCoordinates } from "./types";
 
 export const fetchCoordinatesByName = (
   loaction: string

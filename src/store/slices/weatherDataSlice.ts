@@ -10,12 +10,13 @@ const weatherDataSlice = createSlice({
   reducers: {
     addFavoriteLocation(state, action) {
       state.favoriteList = [...state.favoriteList, action.payload];
+      localStorage.setItem("favoriteList", JSON.stringify(state.favoriteList));
     },
     removeFavoriteLocation(state, action) {
       state.favoriteList = state.favoriteList.filter(
         (location) => location.name !== action.payload
       );
-      console.log(state.favoriteList);
+      localStorage.setItem("favoriteList", JSON.stringify(state.favoriteList));
     },
   },
   extraReducers: (builder) => {

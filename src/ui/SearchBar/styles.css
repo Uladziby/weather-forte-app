@@ -4,3 +4,17 @@
   align-items: center;
   margin-top: 20px;
 }
+
+.button_search {
+  background-color: var(--primary-color);
+  color: white;
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  border-radius: 0.25rem;
+  border: 0;
+  font-size: larger;
+}
+
+.button_search:hover {
+  background-color: #3949ab;
+}

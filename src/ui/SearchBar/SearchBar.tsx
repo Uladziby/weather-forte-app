@@ -31,7 +31,9 @@ export const CitySearch = () => {
       <ATitle styles={{ textAlign: "center" }}>{SEARCH_BAR_TITLE}</ATitle>
       <div className="location_search">
         <AInputSearch onChange={handleChange} />
-        <button onClick={handleSearch}>Search & Add</button>
+        <button className="button_search" onClick={handleSearch}>
+          Search
+        </button>
       </div>
     </>
   );

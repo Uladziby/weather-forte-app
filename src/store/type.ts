@@ -30,15 +30,11 @@ export type ResponseCurrentWeather = {
   cod: number;
 };
 
-export type ResponseCoordinates = {
-  lat: number;
-  lon: number;
-};
-
 export type State = {
   weather: ResponseCurrentWeather;
   currentCoordinates: { lon: number; lat: number };
   favoriteList: FavoriteLocation[];
+  isLoading: boolean;
 };
 
 export type FavoriteLocation = {

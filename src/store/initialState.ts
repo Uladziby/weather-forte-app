@@ -1,4 +1,5 @@
-import { ResponseCurrentWeather, State } from "./type";
+import { getFromLocalStorage } from "../utils/getFromLocalStorage";
+import { FavoriteLocation, ResponseCurrentWeather, State } from "./type";
 
 export const responseWeather: ResponseCurrentWeather = {
   weather: [],
@@ -30,5 +31,8 @@ export const responseWeather: ResponseCurrentWeather = {
 export const initialState: State = {
   weather: responseWeather,
   currentCoordinates: { lon: 0, lat: 0 },
-  favoriteList: [],
+  isLoading: false,
+  favoriteList: JSON.parse(
+    getFromLocalStorage("favoriteList") || "[]"
+  ) as FavoriteLocation[],
 };

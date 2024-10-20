@@ -72,7 +72,6 @@ export const WeatherCard = () => {
             ) : (
               <span> No Data </span>
             )}
-
             <div className="details_button">
               <button
                 className={`button_favorite ${isFavorite ? "active" : ""}`}
@@ -87,7 +86,7 @@ export const WeatherCard = () => {
           Show Forecast
         </button>
       </div>
-      <ForecastMenu isActive={isShowForecast} />
+      <ForecastMenu isActive={isShowForecast} coords={coord} />
     </>
   );
 };
